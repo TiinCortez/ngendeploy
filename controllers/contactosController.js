@@ -33,7 +33,7 @@ const paginaFormulario = (req,res) =>{
             mensaje: mensaje,
         })
     */
-    const sqlQuery = 'INSERT INTO PERSONA SET ?'
+    const sqlQuery = 'INSERT INTO Persona SET ?'
     const datosSql = {
         nombreCompleto: nombreCompleto,
         email: email,
@@ -56,7 +56,7 @@ const paginaFormulario = (req,res) =>{
 
 //Seleccionamos los datos desde la base
 const paginaListar = (req, res) => {
-    const sqlQuery = `SELECT * FROM PERSONA`
+    const sqlQuery = `SELECT * FROM Persona`
 
     connection.query(sqlQuery, (err, result) => {
         if (err) {
@@ -81,7 +81,7 @@ const paginaBorrar = (req,res) => {
 
     console.log(id);
 
-    const sqlQuery = `DELETE FROM persona WHERE idPersona = ${id}`
+    const sqlQuery = `DELETE FROM Persona WHERE idPersona = ${id}`
     connection.query(sqlQuery,(err,result) =>{
         if (err){
             console.log('Error al eliminar el contacto');
@@ -100,7 +100,7 @@ const paginaBorrar = (req,res) => {
 const paginaActualizar = (req,res) =>{
     const id = req.body.idPersona;
 
-    const sqlQuery = `SELECT * FROM PERSONA WHERE idPersona = ${id}`
+    const sqlQuery = `SELECT * FROM Persona WHERE idPersona = ${id}`
 
     connection.query(sqlQuery,(err,result)=>{
         if (err){
@@ -128,7 +128,7 @@ const paginaActualizado = (req,res) =>{
     console.log(telefono);
     console.log(id);
 
-    const sqlQuery = `UPDATE PERSONA SET ? WHERE idPersona = ${id}`
+    const sqlQuery = `UPDATE Persona SET ? WHERE idPersona = ${id}`
 
     const datosSql ={
         nombreCompleto: nombreCompleto,
