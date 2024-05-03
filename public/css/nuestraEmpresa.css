@@ -1,0 +1,140 @@
+.image-container {
+    position: relative;
+    background-image: url('/assets/fondo_nosotros.jpg');
+    padding-bottom: 600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.texto-superpuesto {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px; 
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    
+}
+
+.texto_mid{
+    margin: 50px;
+    text-align: center;
+    justify-content: center;
+}
+
+.box {
+    display: flex;
+}
+
+.caja1 {
+    flex: 1;
+    padding: 20px; 
+    box-sizing: border-box;
+    text-align: center; 
+    background-color: #00BBD6; 
+}
+
+.caja2 {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center; 
+    background-color: #ABC178; 
+}
+
+.caja3 {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center; 
+    background-color: #FFC74E;
+}
+
+.caja1,
+.caja2,
+.caja3 {
+    border: 1px solid #ffd700;
+    margin: 10px;
+}
+
+.titulo{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.card {
+    position: relative;
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
+    margin: 50px auto;
+}
+
+.box_mid{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card .contenido {
+    position: relative;
+    width: 500px;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+}
+
+.card .contenido .img {
+    margin-bottom: 20px;
+}
+
+.card .contenido .img img{
+    position: relative;
+    width: 200px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.card .contenido h4{
+    font-size: 25px;
+    color: #070808;
+    margin-bottom: 5px ;
+}
+
+.card .contenido h6{
+    font-size: 18px;
+    color: #55A3B8;
+}
+
+.card .contenido p{
+    font-size: 15px;
+    color: #070808;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .image-container {
+        height: auto; /* Ajusta la altura para dispositivos móviles */
+        background-image: url('/assets/fondo_nosotros.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+@media (max-width: 1032px){
+    .box_mid {
+        flex-direction: column; /* Cambiar la dirección del flex container a columna */
+        align-items: center; /* Centrar los elementos en el eje transversal */
+    }
+}

@@ -1,0 +1,38 @@
+<div class="container col-xl-10 col-xxl-8 px-4 py-5 color mt-bajonav">
+  <div class="row align-items-center g-lg-5 py-5 ">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Nuestra Informacion</h1>
+      <p class="col-lg-10 fs-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas alias hic, maxime modi
+        tenetur possimus fugiat dolor reprehenderit nulla repellendus ipsam minima incidunt et dignissimos labore
+        laborum, aut vitae architecto!
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5">
+      <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/api/contactos/formulario" method="POST">
+        <div class="form-floating mb-3 form">
+          <input type="text" class="form-control" name="nombreCompleto" id="nombreCompleto" placeholder="Nombre"
+            required>
+          <label for="nombreCompleto">Nombre Completo</label>
+        </div>
+        <div class="form-floating mb-3 form">
+          <input type="email" class="form-control" name="email" id="email" placeholder="email" required>
+          <label for="email">Email</label>
+        </div>
+        <div class="form-floating mb-3 form">
+          <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="telefono" required>
+          <label for="telefono">Teléfono</label>
+        </div>
+        <div class="form-floating mb-3 form">
+          <textarea class="form-control" id="mensaje" name="mensaje" maxlength="300" rows="3"
+            placeholder="mensaje"></textarea>
+          <label for="mensaje">Mensaje</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
+        <button class="w-100 mt-3 btn btn-danger" type="reset">Restablecer</button>
+        <hr class="my-4">
+        <div class="text-center">
+          <small class="text-body-secondary ">Nos contactaremos a la brevedad.</small>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

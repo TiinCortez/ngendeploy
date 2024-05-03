@@ -1,0 +1,86 @@
+:root{
+    --bg-color_primario: #abc178;
+    --bg-color_secundario: #00bbd6;
+    --fontSize-titulo: 40px;
+    --fontSize-parrafos: 20px;
+}
+
+nav.bg-ngen{
+    background-color: #e4fbe4;
+    height: 100px;
+    margin: 20px 10px;
+    border-radius: 16px;
+    padding: 0.5rem;
+    z-index: 1;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+}
+
+nav.bg-ngen ul li {
+    color: var(--bg-color_primario);
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    justify-content: space-between; 
+
+}
+
+nav.bg-ngen ul li ::after{
+    width: 0;
+    height: 2px;
+    background: transparent;
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left:10px;
+    transition: .4s;
+}
+
+nav.bg-ngen ul li :hover{
+    color: var(--bg-color_secundario);
+}
+
+nav.bg-ngen ul li :hover::after{
+    background: var(--bg-color_secundario);
+    width: 40%;
+}
+
+nav.navbar img{
+    height: 75px;
+    width: auto;
+}
+
+.navbar-collapse{
+    background-color: #e4fbe4;
+}
+
+/* Fondo del navbar-collapse redondeado*/
+.fixed2{
+    border-end-end-radius: 20px;
+    border-end-start-radius: 20px;
+}
+
+nav.navbar img:hover{
+    height: 80px;
+    width: auto;
+}
+
+nav.bg-ngen ul li.form{
+    margin-left: 300px;
+}
+
+.navbar-nav .btn button {
+    background-color: var(--bg-color_secundario) ;
+    color: white; 
+    padding: 5px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.navbar-nav .btn button:hover {
+    background-color: #ece065;
+}

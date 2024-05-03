@@ -1,0 +1,19 @@
+.color{
+    background-color: #e4fbe4;
+    border-radius: 20px;
+}
+
+.mt-bajonav {
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+.form{
+    z-index: 0;
+}
+
+body{
+    background-image: url('/assets/fondo-form-cngen-ambiental.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

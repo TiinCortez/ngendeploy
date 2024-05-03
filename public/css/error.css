@@ -1,0 +1,15 @@
+.fondo{
+    background-color: #e4fbe4;
+}
+
+.mensaje_error{
+    padding-top: 150px;
+    text-align: center;
+}
+
+.imagen_error{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,153 @@
+:root{
+    --bg-color_primario: #abc178;
+    --bg-color_secundario: #00bbd6;
+    --fontSize-titulo: 40px;
+    --fontSize-parrafos: 20px;
+}
+
+.carrusel{
+    display: flex;
+    width: 100%;
+    height: 1050px;
+    box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
+    margin-top: -150px;
+    z-index: 0;
+    
+}
+
+.carrusel img{
+    flex-shrink: 0;
+    height: 100%;
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+
+.carrusel img:hover{
+    cursor: pointer;
+    width: 300px;
+    opacity: 1;
+    filter: contrast(120%);
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .carrusel {
+        height: 800px; /* Ajusta la altura para dispositivos móviles */
+    }
+}
+
+p{
+    font-size: 20px;
+}
+
+.division{
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    align-items: center;
+}
+
+.division h1{
+    font-size: 30px;
+}
+
+.primero .color_primario{
+    color: var(--bg-color_primario);
+}
+
+.primero .color_secundario{
+    color: var(--bg-color_secundario);
+}
+
+.segundo .bg-body-tertiary{
+    background-image: url("/assets/fondo_nuestro_servicios.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenido-opaco {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 3rem; 
+}
+.segundo h1 p{
+    color: white;
+}
+.text1{
+    color: #413ee7;
+}
+
+.text2{
+    color: #413ee7;
+    margin-bottom: 30px;
+}
+
+.division {
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 2px 3px 5px rgba(73, 69, 52, 0.4);
+}
+
+.image-container img {
+    width: 100%;
+    height: 500px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.texto-superpuesto {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px; 
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+}
+
+.texto-superpuesto h1{
+    padding: 20px ;
+}
+
+.slider {
+    width: auto;
+    height: 150px;
+    margin: auto;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.slider .slide-track {
+    display: flex;
+    margin: 20px;
+    animation: scroll 40s linear infinite;
+}
+
+.slider .slide {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.slide img {
+    width: 800px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-220px * 4));
+    }
+}

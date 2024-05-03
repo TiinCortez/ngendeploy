@@ -1,0 +1,32 @@
+<style>
+  .espacio_superior {
+    margin-top: 150px;
+  }
+</style>
+
+<div class="col-md-10 mx-auto col-lg-5 espacio_superior" id="formulario">
+    <h1 class="text-center m-4">Actualizacion de Contacto</h1>
+    <p class="text-center m-4"> Datos Contactos:  #  {{ persona.idPersona }} </p>
+    <form class=" m-4 p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/api/contactos/actualizado" method="POST">
+        <div class="form-floating mb-3 form">
+            <input type="text" class="form-control" name="nombreCompleto" id="nombreCompleto" value="{{persona.nombreCompleto}}" required>
+            <label for="nombreCompleto">Nombre Completo</label>
+        </div>
+        <div class="form-floating mb-3 form">
+            <input type="email" class="form-control" name="email" id="email" value={{persona.email}} required>
+            <label for="email">Email</label>
+        </div>
+        <div class="form-floating mb-3 form">
+            <input type="tel" class="form-control" name="telefono" id="telefono" value={{persona.telefono}} required>
+            <label for="telefono">Teléfono</label>
+        </div>
+        <p>
+            <input type="hidden" name="idPersona" value={{ persona.idPersona }}>
+        </p>
+        <div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Actualizar datos</button>
+        <button class="w-100 mt-3 btn btn-danger " type="reset">Restablecer</button>
+        <hr class="my-4">
+        </div>
+    </form>
+</div>
