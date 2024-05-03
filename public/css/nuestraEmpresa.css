@@ -124,17 +124,29 @@
 
 @media (max-width: 768px) {
     .image-container {
-        height: auto; /* Ajusta la altura para dispositivos móviles */
+        height: auto;
         background-image: url('/assets/fondo_nosotros.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
     }
+    .box{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card .contenido{
+        width: 300px;
+    }
+
+    .card{
+        width: 300px;
+    }
 }
 
 @media (max-width: 1032px){
     .box_mid {
-        flex-direction: column; /* Cambiar la dirección del flex container a columna */
-        align-items: center; /* Centrar los elementos en el eje transversal */
+        flex-direction: column;
+        align-items: center;
     }
 }

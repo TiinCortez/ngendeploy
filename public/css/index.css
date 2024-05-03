@@ -38,7 +38,7 @@
         height: 800px; /* Ajusta la altura para dispositivos móviles */
     }
 
-    .slide {
+    .slide img{
         width: 500px;
     }
 }
