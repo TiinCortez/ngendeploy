@@ -2,6 +2,7 @@ const mysql = require('mysql2');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const PORT = process.env.PORT;
 const PORTSQL = process.env.PORTSQL;
 const USERSQL= process.env.USERSQL;
 const PASSWORDSQL= process.env.PASSWORDSQL; 
@@ -10,6 +11,7 @@ const DATASQL = process.env.DATASQL;
 
 //PRUEBA RECONOCIMIENTO DE VARIABLES
 console.log('==============');
+console.log(PORT);
 console.log(PORTSQL);
 console.log(USERSQL);
 console.log(PASSWORDSQL);
