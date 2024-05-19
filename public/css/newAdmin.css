@@ -1,0 +1,19 @@
+.margen_superior{
+    background-color: #e4fbe4;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.cabezera{
+    margin-top: 150px;
+}
+
+.form{
+    z-index: 0;
+}
+
+body{
+    background-image: url('/assets/fondo-form-cngen-ambiental.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

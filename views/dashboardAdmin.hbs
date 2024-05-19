@@ -1,0 +1,46 @@
+<style>
+    .espacio_superior {
+        margin-top: 150px;
+    }
+
+    .personalizar-container {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+</style>
+
+<div class="row mb-2 espacio_superior personalizar-container">
+    <h1 class="text-center m-3">Bienvenido {{ user }}</h1>
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary-emphasis">Ngen Ambiental</strong>
+                <h3 class="mb-3">Nuestros Formularios</h3>
+                <p class="card-text mb-auto">Seleccione para poder ver toda la informacion de los Administradores.</p>
+                <a href="listarContactos" class="icon-link gap-1 icon-link-hover stretched-link">
+                    Formularios
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img src="https://paginav.cl/wp-content/uploads/2021/01/big-data-mundo-cambio-climatico-medioambiente-sostenibilidad-verde-reciclaje-contaminacion-BBVA.jpg"
+                    width="200" height="250" alt="Descripción de la imagen" style="object-fit: cover;">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis">Ngen Ambiental</strong>
+                <h3 class="mb-3">Administradores</h3>
+                <p class="mb-auto">Todos los formularios rellenados por nuestros clientes.</p>
+                <a href="listarAdmin" class="icon-link gap-1 icon-link-hover stretched-link">
+                    Administradores
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img src="https://media.licdn.com/dms/image/D4E22AQFBQ0xe291Ohg/feedshare-shrink_1280/0/1714685915910?e=1718841600&v=beta&t=x4Oj6LdFeAuhQcR2BhIzmdkHtLpb4ouSOHWABEfJ_hM"
+                    width="200" height="250" alt="Descripción de la imagen" style="object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</div>

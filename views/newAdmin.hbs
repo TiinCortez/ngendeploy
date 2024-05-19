@@ -1,0 +1,20 @@
+ 
+<main class="form-signin w-100 form cabezera">
+  <form class="w-50 margen_superior m-auto" method="post" action="/api/login/registrarAdmin">
+    <img class="mb-2 mt-3" src="/assets/administrador.png" alt="" width="200" height="200">
+    <h1 class="h3 mb-3 fw-normal">Registre el nuevo Administrador</h1>
+    <div class="form-floating form ">
+      <input type="text" class="form-control" id="user" name="user" placeholder="Nombre de Usuario" required>
+      <label for="usuario">Nombre de Usuario:</label>
+    </div>
+    <div class="form-floating form mt-2">
+      <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="contrasena" required>
+      <label for="contrasena">Contraseña:</label>
+    </div>
+        <div class="form-floating form mt-2">
+      <input type="email" class="form-control" id="email" name="email" placeholder="email:" required>
+      <label for="email">Email:</label>
+    </div>
+    <button class="btn mt-5 btn-success w-50 py-2" type="submit">Agregar</button>
+    <p class="mt-5 w-40 mb-3 text-body-secondary">&copy; 2017–2024</p>
+  </form>

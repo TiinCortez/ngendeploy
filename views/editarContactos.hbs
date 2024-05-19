@@ -7,7 +7,7 @@
 <div class="col-md-10 mx-auto col-lg-5 espacio_superior" id="formulario">
     <h1 class="text-center m-4">Actualizacion de Contacto</h1>
     <p class="text-center m-4"> Datos Contactos:  #  {{ persona.idPersona }} </p>
-    <form class=" m-4 p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/api/contactos/actualizado" method="POST">
+    <form class=" m-4 p-4 p-md-5 border rounded-3 bg-body-tertiary" action="/api/login/actualizado" method="POST">
         <div class="form-floating mb-3 form">
             <input type="text" class="form-control" name="nombreCompleto" id="nombreCompleto" value="{{persona.nombreCompleto}}" required>
             <label for="nombreCompleto">Nombre Completo</label>

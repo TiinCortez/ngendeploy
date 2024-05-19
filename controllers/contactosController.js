@@ -1,12 +1,12 @@
 //Importamos la conexion a la base
-const connection = require ('../models/config')
+import connection from '../models/config.js';
+import enviarMail from '../sevices/enviarMail.js'
 
 const paginaContacto =  (req,res)=>{
     res.render('contacto',{
         style:'contacto.css'
     });
 }
-
 
 //Cargar datos en la base
 const paginaFormulario = (req,res) =>{
@@ -15,24 +15,7 @@ const paginaFormulario = (req,res) =>{
     const telefono = parseInt(req.body.telefono);
     const email = req.body.email;
     const mensaje = req.body.mensaje;
-
-    /*Conjunto al json para la consulta
-    const persona={
-        nombreCompleto,
-        email,
-        mensaje
-    } = req.body;
-    */
-    //Verificacion en consola de datos:
-    //console.log (`Los datos ingresados son: ${persona.nombreCompleto}, ${persona.telefono},${persona.mensaje}`);
-    //Verificacion de carga de datos con el post de json:
-    /*    res.json({
-            nombreCompleto: nombreCompleto,
-            email: email,
-            telefono: telefono,
-            mensaje: mensaje,
-        })
-    */
+    
     const sqlQuery = 'INSERT INTO Persona SET ?'
     const datosSql = {
         nombreCompleto: nombreCompleto,
@@ -45,17 +28,33 @@ const paginaFormulario = (req,res) =>{
         if (err) {
             console.log('Error al insertar los datos');
             console.log(err);
-            res.send('Error al insertar los datos');
+            const error = 'Error al insertar los datos';
+            res.render(
+                'contacto',
+            {
+                style:'contacto.css',
+                clientes: result,
+                error:error
+            })
         } else{
             console.log('Datos insertados correctamente');
-            res.redirect('/api/contactos');
+            const valido = 'Datos insertados correctamente';
+            //Enviamos un email al user que registro el formulario:
+            enviarMail(email,nombreCompleto).catch(console.error);
+            res.render(
+                'contacto',
+            {
+                style:'contacto.css',
+                clientes: result,
+                valido:valido
+            })
         }
         })
     };
 
 
 //Seleccionamos los datos desde la base
-const paginaListar = (req, res) => {
+/*const paginaListar = (req, res) => {
     const sqlQuery = `SELECT * FROM Persona`
 
     connection.query(sqlQuery, (err, result) => {
@@ -147,16 +146,11 @@ const paginaActualizado = (req,res) =>{
         res.redirect('/api/contactos/listar')
     }
 })
-}
+}*/
 
-
-module.exports = {
+export{
     paginaContacto,
-    paginaFormulario,
-    paginaListar,
-    paginaBorrar,
-    paginaActualizar,
-    paginaActualizado
+    paginaFormulario
 }
 
 //Las peticiones de Routers

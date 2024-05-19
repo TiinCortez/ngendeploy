@@ -1,23 +1,35 @@
-const express = require("express");
-const cors = require("cors");
-const morgan = require("morgan");
-const path = require("node:path");
-const hbs = require('hbs');
-const contactosRoutes = require('./routes/contactosRoutes');
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import path from 'node:path';
+import hbs from 'hbs';
+import contactosRoutes from './routes/contactosRoutes.js';
+import loginRoutes from './routes/loginRoutes.js';
 
-const app = express();
+const app = express(); //Variable local
 
 app.set('view engine', 'hbs');
-app.set('views', path.join(__dirname, 'views'));
-hbs.registerPartials(path.join(__dirname, 'views/partials'));
+//app.set('views', path.join(__dirname, 'views')); ES5
+app.set('views','views');
+//hbs.registerPartials(path.join(__dirname, 'views/partials')); ES5
+hbs.registerPartials('views/partials');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '/public')));
+//app.use(express.static(path.join(__dirname, '/public'))); ES5
+app.use(express.static('public'));
 app.use(cors());
 app.use(morgan('dev'));
 
 app.use('/api/contactos', contactosRoutes);
+
+app.use('/api/login', loginRoutes);
+
+app.get('/listarAdministradores', (req,res) => {
+    res.render('listarAdministradores', {
+        style: 'contacto.css'
+    });
+});
 
 app.get('/', (req,res) => {
     res.render('index', {
@@ -49,12 +61,6 @@ app.get('/clientes', (req,res) => {
     });
 });
 
-/*app.get('/contacto', (req,res) => {
-    res.render('contacto', {
-        style: 'contacto.css'
-    });
-});*/
-
 //Notifica error al ingresar un url no identificado
 app.get('/*', (req, res) => {
     res.render('error', {
@@ -62,4 +68,16 @@ app.get('/*', (req, res) => {
     });
 });
 
-module.exports = app;
+app.get('/api/*', (req, res) => {
+    res.render('error', {
+        style: 'error.css'
+    });
+});
+
+app.get('/api/*', (req, res) => {
+    res.render('error', { 
+        style: 'error.css'
+    });
+});
+
+export default app

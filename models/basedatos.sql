@@ -12,3 +12,12 @@ telefono int,
 email varchar(80),
 comentario varchar(300)
 );
+
+
+CREATE TABLE admiUsuarios (
+id INT AUTO_INCREMENT PRIMARY KEY,
+usuario VARCHAR(255) NOT NULL,
+contraseña VARCHAR(255) NOT NULL,
+fecha_de_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ultimo_acceso TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);

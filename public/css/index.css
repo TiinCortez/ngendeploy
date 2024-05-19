@@ -74,7 +74,10 @@ p{
 
 .contenido-opaco {
     background-color: rgba(255, 255, 255, 0.5);
-    padding: 3rem; 
+    padding: 3rem;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    color: black;
 }
 .segundo h1 p{
     color: white;

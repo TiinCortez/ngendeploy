@@ -1,0 +1,117 @@
+<style>
+  .espacio_superior {
+    margin-top: 150px;
+  }
+
+  .espacio_inferior {
+    margin-bottom: 50px;
+  }
+
+  .table {
+    table-layout: fixed;
+  }
+
+  .table tr {
+    text-align: center;
+  }
+
+  .table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    max-width: 200px;
+    text-align: center;
+  }
+</style>
+
+<div class="container text center espacio_superior">
+  <h1 class="text-center text-success"> {{ error }} </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Email</th>
+        <th scope="col">Fecha de Creacion</th>
+        <th scope="col">Ultimo Acceso</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <!--se utiliza en handlebars como un for -->
+      {{#each administradores}}
+      <tr>
+        <th scope="row">{{idUsuario}}</th>
+        <td>{{usuario}}</td>
+        <td>{{email}}</td>
+        <td>{{fecha_de_creacion}}</td>
+        <td>{{ultimo_acceso}}</td>
+      </tr>
+      {{/each }}
+      {{#unless administradores}}
+      <tr>
+        <td class="text-center" colspan="5">No hay administradores en la base.</td>
+      </tr>
+      {{/unless}}
+    </tbody>
+  </table>
+
+  <!-- Creamos un modal para eliminar un contacto de ngen -->
+  <form action="/api/login/borrarAdmi" method="post">
+    <div class="modal" id="deleteModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Eliminar Administrador</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label for="idAdmin">Seleccione el ID para eliminar</label>
+            <input type="number" id="idAdmin" name="idAdmin">
+          </div>
+          <div class="modal-body">
+            <p>¿Seguro desea eliminar este Administrador?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Botones para eliminar contacto  -->
+  <div class="container text-center espacio_inferior " id="boton">
+    <button type="button" class="btn btn-danger w-50 delete">Eliminar Administrador</button>
+  </div>
+
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-white">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-success-emphasis">Ngen Ambiental</strong>
+                <h3 class="mb-3">Nuevos Administradores</h3>
+                <p class="mb-auto">Nos encanta poder contar con un nuevo equipo de trabajo.</p>
+                <a href="newAdmin" class="icon-link gap-1 icon-link-hover stretched-link">
+                    Agregar Administradores
+                </a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img src="https://paginav.cl/wp-content/uploads/2021/01/big-data-mundo-cambio-climatico-medioambiente-sostenibilidad-verde-reciclaje-contaminacion-BBVA.jpg"
+                    width="200" height="250" alt="Descripción de la imagen" style="object-fit: cover;">
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Linkeamos el Jquery que nos permite hacer un modal rapido  -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script>
+    //modal del delete
+    $('#boton').on('click', '.delete', function () {
+      $('#deleteModal').modal('show');
+    })
+  </script>
+
+</div>

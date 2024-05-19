@@ -1,25 +1,13 @@
-const express = require('express');
-const router = express.Router();
-const { paginaContacto, 
-        paginaFormulario,
-        paginaListar,
-        paginaBorrar,
-        paginaActualizar,
-        paginaActualizado
-        } = require('../controllers/contactosController');
+import express from 'express';
+import verificarJWT from '../middlewares/VerJWT.js';
 
+const router = express.Router();
+import { paginaContacto, 
+        paginaFormulario
+        } from '../controllers/contactosController.js';
+        
 router.get('/',paginaContacto);
 
-router.get('/listar', paginaListar);
+router.post('/formulario',paginaFormulario);
 
-router.post('/formulario', paginaFormulario);
-
-router.post('/borrar', paginaBorrar);
-
-router.post('/actualizar', paginaActualizar);
-
-router.post('/actualizado', paginaActualizado);
-
-
-
-module.exports = router
+export default router;
