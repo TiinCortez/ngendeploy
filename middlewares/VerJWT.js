@@ -1,14 +1,13 @@
-import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { request, response } from 'express';
 dotenv.config();
-
+import jwt from 'jsonwebtoken';
+import { request, response } from 'express';
+//llave secreta de la app
 const secreto = process.env.SECRETKEY;
 
 const verificarToken = (req = request, res = response, next) => {
-    
     //obtenemos el token del header
-    const token = req.header('X-Auth-Token');
+    const token = req.header('tk-seg');
 
     console.log('==============================');
     console.log(token);
@@ -18,8 +17,7 @@ const verificarToken = (req = request, res = response, next) => {
     //si no hay token
     if(!token){
         return res.render('error', {
-            errores: 'No hay token',
-            style: 'error.css'
+            errores: 'No hay token'
         });
     }
 
@@ -35,8 +33,7 @@ const verificarToken = (req = request, res = response, next) => {
     } catch (error) {
         console.log(error);
         res.render('error', {
-            errores: 'Token no válido',
-            style: 'error.css'
+            errores: 'Token no válido'
         });
     }
 }

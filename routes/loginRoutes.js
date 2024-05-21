@@ -17,7 +17,7 @@ import { paginaLogin,
 
 router.get('/', paginaLogin);
 
-router.post('/ingreso',paginaIngreso);
+router.post('/ingreso' ,paginaIngreso);
 
 router.post('/registrarAdmin' ,paginaRegistroAdmi);
 

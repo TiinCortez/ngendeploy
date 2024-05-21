@@ -1,6 +1,6 @@
     
 <main class="form-signin w-100 form cabezera">
-  <form class="w-50 margen_superior m-auto" action="/api/login/ingreso" method="post">
+  <form class="w-75 mt-3 mb-3 margen_superior m-auto" action="/api/login/ingreso" method="post">
     <img class="mb-2 mt-3" src="/assets/administrador.png" alt="" width="200" height="200">
     <h1 class="h3 mb-3 fw-normal">Iniciar Sesion</h1>
     <h1 class="text-danger">{{ error }}</h1>
@@ -10,7 +10,7 @@
       <label for="user">Ingresar Usuario:</label>
     </div>
     <div class="form-floating mb-3 form ">
-      <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="contrasena" required>
+      <input type="password" class="form-control ml-2 mr-2" id="contrasena" name="contrasena" placeholder="contrasena" required>
       <label for="contrasena">Contraseña:</label>
     </div>
     <button class="btn mt-5 btn-success w-50 py-2" type="submit">Iniciar Sesion</button>

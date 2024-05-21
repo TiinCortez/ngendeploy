@@ -2,12 +2,17 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 dotenv.config();
 
+const secreto = process.env.SECRETKEY;
+
 const generarJWT = (user) => {
-    return new Promise((resolve,reject) =>{
+
+    return new Promise((resolve, reject) => {
+        
         const payload = { user };
-        jwt.sign(payload, process.env.SECRETKEY,{
+
+        jwt.sign(payload, secreto, {
             expiresIn: '4h'
-        }, (err,token) => {
+        }, (err, token) => {
             if (err) {
                 console.log(err);
                 reject('No se pudo generar el token');
@@ -16,6 +21,8 @@ const generarJWT = (user) => {
             }
         });
     });
+
 }
+
 
 export default generarJWT;

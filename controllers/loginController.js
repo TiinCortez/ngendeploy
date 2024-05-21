@@ -86,12 +86,12 @@ const paginaIngreso = async (req, res) => {
 
                 // Generar el token para el usuario
                 const token = await generarJWT(user);
+                res.header('tk-seg', token);
                 
-                res.header('x-auth-token', token);
                 // Las credenciales son correctas
                 console.log('Inicio de sesión exitoso');
                 console.log(token)
-                res.render(
+                return res.render(
                     'dashboardAdmin',
                 {
                     token: token,
@@ -164,7 +164,7 @@ const paginaRegistroAdmi = async (req, res) => {
     }
 };
 
-const adminListar = (req, res) => {
+const adminListar = async (req, res) => {
     const sqlQuery = `SELECT * FROM admiusuarios`
 
     connection.query(sqlQuery, (err, result) => {
@@ -179,7 +179,7 @@ const adminListar = (req, res) => {
                 'listarAdministradores',
             {
                 style:'contacto.css',
-                administradores: result
+                administradores: result,
             })
         }
     });
@@ -221,6 +221,7 @@ const paginaListar = (req, res) => {
             console.log(err);
             res.send('Error al leer los datos');
         } else {
+            
             console.log('Lectura de datos correctas');
             console.log(req.headers['X-Auth-Token']);
             console.log(result);
@@ -228,7 +229,7 @@ const paginaListar = (req, res) => {
                 'listarContactos',
             {
                 style:'contacto.css',
-                clientes: result
+                clientes: result,
             })
         }
     });
