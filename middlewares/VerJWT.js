@@ -7,12 +7,10 @@ const secreto = process.env.SECRETKEY;
 
 const verificarToken = (req = request, res = response, next) => {
     //obtenemos el token del header
-    const token = req.header('tk-seg');
-
+    const token = req.header('x-access-token');
     console.log('==============================');
-    console.log(token);
+    console.log('Token:', token);
     console.log('==============================');
-
 
     //si no hay token
     if(!token){
@@ -24,7 +22,7 @@ const verificarToken = (req = request, res = response, next) => {
     try {
         //verificamos el token
         const payload = jwt.verify(token, secreto);
-
+        
         //si el token es válido
         req.user = payload.user;
         
@@ -36,6 +34,13 @@ const verificarToken = (req = request, res = response, next) => {
             errores: 'Token no válido'
         });
     }
-}
+};
 
 export default verificarToken;
+
+
+
+/* 
+window.localStorage.setItem('token',JSON.stringify(token));
+
+window.localstorageGetItem('token') --> +Condicion de peticion y comparacion con el */

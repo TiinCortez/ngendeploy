@@ -86,12 +86,11 @@ const paginaIngreso = async (req, res) => {
 
                 // Generar el token para el usuario
                 const token = await generarJWT(user);
-                res.header('tk-seg', token);
-                
+                res.header('x-auth-token', token);
                 // Las credenciales son correctas
                 console.log('Inicio de sesión exitoso');
                 console.log(token)
-                return res.render(
+                res.render(
                     'dashboardAdmin',
                 {
                     token: token,
@@ -223,7 +222,6 @@ const paginaListar = (req, res) => {
         } else {
             
             console.log('Lectura de datos correctas');
-            console.log(req.headers['X-Auth-Token']);
             console.log(result);
             res.render(
                 'listarContactos',

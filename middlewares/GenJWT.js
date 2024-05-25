@@ -11,7 +11,7 @@ const generarJWT = (user) => {
         const payload = { user };
 
         jwt.sign(payload, secreto, {
-            expiresIn: '4h'
+            expiresIn: '4h',
         }, (err, token) => {
             if (err) {
                 console.log(err);
@@ -21,7 +21,6 @@ const generarJWT = (user) => {
             }
         });
     });
-
 }
 
 
