@@ -7,7 +7,7 @@ const secreto = process.env.SECRETKEY;
 
 const verificarToken = (req = request, res = response, next) => {
     //obtenemos el token del header
-    const token = req.header('x-access-token');
+    const token = req.cookies['x-access-token'];
     console.log('==============================');
     console.log('Token:', token);
     console.log('==============================');

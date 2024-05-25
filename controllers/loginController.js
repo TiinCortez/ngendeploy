@@ -2,6 +2,7 @@ import connection from '../models/config.js';
 //Import de encriptador de password
 import bcrypt from 'bcrypt';
 //Import del token
+import cookieParser from 'cookie-parser';
 import generarJWT from '../middlewares/GenJWT.js';
 
 const paginaLogin =  (req,res)=>{
@@ -86,7 +87,7 @@ const paginaIngreso = async (req, res) => {
 
                 // Generar el token para el usuario
                 const token = await generarJWT(user);
-                res.header('x-auth-token', token);
+                res.cookie('x-auth-token', token);
                 // Las credenciales son correctas
                 console.log('Inicio de sesión exitoso');
                 console.log(token)
@@ -164,7 +165,7 @@ const paginaRegistroAdmi = async (req, res) => {
 };
 
 const adminListar = async (req, res) => {
-    const sqlQuery = `SELECT * FROM admiusuarios`
+    const sqlQuery = `SELECT * FROM admiUsuarios`
 
     connection.query(sqlQuery, (err, result) => {
         if (err) {
@@ -212,7 +213,7 @@ const eliminarAdmin = (req, res) => {
 //==================== CONTACTOS ====================
 //Seleccionamos los datos desde la base
 const paginaListar = (req, res) => {
-    const sqlQuery = `SELECT * FROM persona`
+    const sqlQuery = `SELECT * FROM Persona`
 
     connection.query(sqlQuery, (err, result) => {
         if (err) {
@@ -238,7 +239,7 @@ const paginaBorrar = (req,res) => {
 
     console.log(id);
 
-    const sqlQuery = `DELETE FROM persona WHERE idPersona = ${id}`
+    const sqlQuery = `DELETE FROM Persona WHERE idPersona = ${id}`
     connection.query(sqlQuery,(err,result) =>{
         if (err){
             console.log('Error al eliminar el contacto');
@@ -257,7 +258,7 @@ const paginaBorrar = (req,res) => {
 const paginaActualizar = (req,res) =>{
     const id = req.body.idPersona;
 
-    const sqlQuery = `SELECT * FROM persona WHERE idPersona = ${id}`
+    const sqlQuery = `SELECT * FROM Persona WHERE idPersona = ${id}`
 
     connection.query(sqlQuery,(err,result)=>{
         if (err){
@@ -285,7 +286,7 @@ const paginaActualizado = (req,res) =>{
     console.log(telefono);
     console.log(id);
 
-    const sqlQuery = `UPDATE persona SET ? WHERE idPersona = ${id}`
+    const sqlQuery = `UPDATE Persona SET ? WHERE idPersona = ${id}`
 
     const datosSql ={
         nombreCompleto: nombreCompleto,

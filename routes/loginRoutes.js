@@ -21,7 +21,7 @@ router.post('/ingreso',paginaIngreso);
 
 router.post('/registrarAdmin' ,paginaRegistroAdmi);
 
-router.get('/listarAdmin' ,adminListar);
+router.get('/listarAdmin',adminListar);
 
 router.post('/borrarAdmi' ,eliminarAdmin);
 

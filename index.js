@@ -5,6 +5,7 @@ import path from 'node:path';
 import hbs from 'hbs';
 import contactosRoutes from './routes/contactosRoutes.js';
 import loginRoutes from './routes/loginRoutes.js';
+import cookieParser from 'cookie-parser';
 
 const app = express(); //Variable local
 
@@ -14,6 +15,7 @@ app.set('views','views');
 //hbs.registerPartials(path.join(__dirname, 'views/partials')); ES5
 hbs.registerPartials('views/partials');
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 //app.use(express.static(path.join(__dirname, '/public'))); ES5
